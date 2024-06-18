@@ -1,0 +1,38 @@
+name: Python application
+
+on:
+  push:
+    branches: [ development ]
+  pull_request:
+    branches: [ development ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install click pytest
+
+    - name: Lint with flake8
+      run: |
+        source venv/bin/activate
+        pip install flake8
+        flake8 .
+
+    - name: Run tests
+      run: |
+        source venv/bin/activate
+        python -m unittest discover -s tests
