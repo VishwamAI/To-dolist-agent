@@ -22,7 +22,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m venv venv
+        python3 -m venv venv
         source venv/bin/activate
         pip install click pytest
 
@@ -35,4 +35,4 @@ jobs:
     - name: Run tests
       run: |
         source venv/bin/activate
-        python -m unittest discover -s tests
+        python3 -m unittest discover -s tests
