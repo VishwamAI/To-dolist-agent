@@ -2,8 +2,10 @@ import click
 import json
 import os
 
+
 # File to store to-do items
 TODO_FILE = 'todo_list.json'
+
 
 # Load to-do items from file
 if os.path.exists(TODO_FILE):
@@ -12,10 +14,12 @@ if os.path.exists(TODO_FILE):
 else:
     todo_list = []
 
+
 @click.group()
 def cli():
     """A simple CLI for managing a to-do list."""
     pass
+
 
 @cli.command()
 @click.argument('task')
@@ -24,6 +28,7 @@ def add(task):
     todo_list.append(task)
     save_tasks()
     click.echo(f'Task added: {task}')
+
 
 @cli.command()
 def view():
@@ -34,6 +39,7 @@ def view():
         click.echo('To-do list:')
         for idx, task in enumerate(todo_list, 1):
             click.echo(f'{idx}. {task}')
+
 
 @cli.command()
 @click.argument('task_number', type=int)
@@ -46,10 +52,12 @@ def delete(task_number):
     else:
         click.echo('Invalid task number.')
 
+
 def save_tasks():
     """Save the to-do list to a file."""
     with open(TODO_FILE, 'w') as file:
         json.dump(todo_list, file)
+
 
 if __name__ == '__main__':
     cli()
