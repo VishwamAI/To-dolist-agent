@@ -1,11 +1,14 @@
 import click
 
+
 tasks = []
+
 
 @click.group()
 def cli():
     """A simple CLI for managing tasks."""
     pass
+
 
 @click.command()
 @click.argument('task')
@@ -13,6 +16,7 @@ def add(task):
     """Add a new task."""
     tasks.append(task)
     click.echo(f'Task added: {task}')
+
 
 @click.command()
 def view():
@@ -24,6 +28,7 @@ def view():
     else:
         click.echo('No tasks found.')
 
+
 @click.command()
 @click.argument('task_number', type=int)
 def delete(task_number):
@@ -34,9 +39,11 @@ def delete(task_number):
     else:
         click.echo('Invalid task number.')
 
+
 cli.add_command(add)
 cli.add_command(view)
 cli.add_command(delete)
+
 
 if __name__ == '__main__':
     cli()
