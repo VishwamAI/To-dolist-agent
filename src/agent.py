@@ -13,6 +13,7 @@ if os.path.exists(TODO_FILE):
     with open(TODO_FILE, 'r') as file:
         todo_list = json.load(file)
 
+
 else:
     todo_list = []
 
@@ -21,6 +22,7 @@ else:
 if os.path.exists(CONFIG_FILE):
     with open(CONFIG_FILE, 'r') as file:
         auto_tasking_config = json.load(file)
+
 
 else:
     auto_tasking_config = {"time_based_tasks": [], "template_based_tasks": []}
