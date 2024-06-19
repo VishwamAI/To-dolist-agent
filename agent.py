@@ -1,6 +1,8 @@
 import click
 
+
 tasks = []
+
 
 @click.group()
 def cli():
