@@ -2,9 +2,9 @@ name: Python application
 
 on:
   push:
-    branches: [ development ]
+    branches: [ development, trigger-workflow ]
   pull_request:
-    branches: [ development ]
+    branches: [ development, trigger-workflow ]
 
 jobs:
   build:
