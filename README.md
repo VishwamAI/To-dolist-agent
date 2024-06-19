@@ -84,3 +84,7 @@ You can modify this file to define your own rules for auto-generated tasks.
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Update
+
+This is a trivial update to trigger a new CI/CD workflow run.
