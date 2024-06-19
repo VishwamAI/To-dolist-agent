@@ -1,7 +1,16 @@
 import click
+import json
+import os
 
-# In-memory storage for to-do items
-todo_list = []
+# File to store to-do items
+TODO_FILE = 'todo_list.json'
+
+# Load to-do items from file
+if os.path.exists(TODO_FILE):
+    with open(TODO_FILE, 'r') as file:
+        todo_list = json.load(file)
+else:
+    todo_list = []
 
 @click.group()
 def cli():
@@ -13,6 +22,7 @@ def cli():
 def add(task):
     """Add a new task to the to-do list."""
     todo_list.append(task)
+    save_tasks()
     click.echo(f'Task added: {task}')
 
 @cli.command()
@@ -31,9 +41,15 @@ def delete(task_number):
     """Delete a task from the to-do list by its number."""
     if 0 < task_number <= len(todo_list):
         removed_task = todo_list.pop(task_number - 1)
+        save_tasks()
         click.echo(f'Task deleted: {removed_task}')
     else:
         click.echo('Invalid task number.')
+
+def save_tasks():
+    """Save the to-do list to a file."""
+    with open(TODO_FILE, 'w') as file:
+        json.dump(todo_list, file)
 
 if __name__ == '__main__':
     cli()
