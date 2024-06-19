@@ -4,7 +4,6 @@ from agent import cli, tasks
 
 
 class TestTodoListAgent(unittest.TestCase):
-
     def setUp(self):
         self.runner = CliRunner()
 
