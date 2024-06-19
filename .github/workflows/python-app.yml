@@ -27,10 +27,10 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m venv venv
+        ${{ env.pythonLocation }}/bin/python -m venv venv
         source venv/bin/activate
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        ${{ env.pythonLocation }}/bin/python -m pip install --upgrade pip
+        ${{ env.pythonLocation }}/bin/pip install -r requirements.txt
 
     - name: Lint with flake8
       run: |
