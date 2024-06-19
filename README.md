@@ -1,5 +1,7 @@
 # To-dolist-agent
 
+[![Python application](https://github.com/VishwamAI/To-dolist-agent/actions/workflows/python-app.yml/badge.svg)](https://github.com/VishwamAI/To-dolist-agent/actions/workflows/python-app.yml)
+
 ## Overview
 
 The To-dolist-agent is a command-line tool designed to help you manage your to-do list efficiently. It allows you to add, remove, and view tasks, as well as automatically generate tasks based on predefined rules.
@@ -78,7 +80,6 @@ The `config/auto_tasking_config.json` file defines the rules for auto-generated 
     ]
 }
 ```
-[![Python application](https://github.com/VishwamAI/To-dolist-agent/actions/workflows/python-app.yml/badge.svg)](https://github.com/VishwamAI/To-dolist-agent/actions/workflows/python-app.yml)
 
 You can modify this file to define your own rules for auto-generated tasks.
 
