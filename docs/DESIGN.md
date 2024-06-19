@@ -62,3 +62,7 @@ python -m unittest discover -s tests
 - Marking tasks as completed
 - Saving and loading tasks from a file
 - Adding due dates and priorities to tasks
+- Categorizing tasks
+- Visual representation of tasks (e.g., task board)
+- Task search and filtering
+- Task reminders and notifications

@@ -24,7 +24,7 @@ jobs:
       run: |
         python3 -m venv venv
         source venv/bin/activate
-        pip install click pytest
+        pip install -r requirements.txt
 
     - name: Lint with flake8
       run: |
