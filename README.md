@@ -78,6 +78,7 @@ The `config/auto_tasking_config.json` file defines the rules for auto-generated 
     ]
 }
 ```
+[![Python application](https://github.com/VishwamAI/To-dolist-agent/actions/workflows/python-app.yml/badge.svg)](https://github.com/VishwamAI/To-dolist-agent/actions/workflows/python-app.yml)
 
 You can modify this file to define your own rules for auto-generated tasks.
 
