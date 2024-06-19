@@ -1,0 +1,17 @@
+{
+    "time_based_tasks": [
+        {
+            "frequency": "daily",
+            "task": "Review daily goals"
+        },
+        {
+            "frequency": "weekly",
+            "task": "Plan weekly schedule"
+        }
+    ],
+    "template_based_tasks": [
+        "Buy groceries",
+        "Clean the house",
+        "Exercise for 30 minutes"
+    ]
+}
