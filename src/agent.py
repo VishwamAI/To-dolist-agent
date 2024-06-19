@@ -4,6 +4,7 @@ import os
 
 # File to store to-do items
 TODO_FILE = 'todo_list.json'
+CONFIG_FILE = 'config/auto_tasking_config.json'
 
 # Load to-do items from file
 if os.path.exists(TODO_FILE):
@@ -11,6 +12,13 @@ if os.path.exists(TODO_FILE):
         todo_list = json.load(file)
 else:
     todo_list = []
+
+# Load auto-tasking configuration from file
+if os.path.exists(CONFIG_FILE):
+    with open(CONFIG_FILE, 'r') as file:
+        auto_tasking_config = json.load(file)
+else:
+    auto_tasking_config = {"time_based_tasks": [], "template_based_tasks": []}
 
 @click.group()
 def cli():
@@ -45,6 +53,24 @@ def delete(task_number):
         click.echo(f'Task deleted: {removed_task}')
     else:
         click.echo('Invalid task number.')
+
+@cli.command()
+def auto_task():
+    """Automatically generate tasks based on the configuration."""
+    generate_time_based_tasks()
+    generate_template_based_tasks()
+    save_tasks()
+    click.echo('Auto-generated tasks have been added to the to-do list.')
+
+def generate_time_based_tasks():
+    """Generate tasks based on time-based rules."""
+    for task_rule in auto_tasking_config.get("time_based_tasks", []):
+        todo_list.append(task_rule["task"])
+
+def generate_template_based_tasks():
+    """Generate tasks based on template-based rules."""
+    for task in auto_tasking_config.get("template_based_tasks", []):
+        todo_list.append(task)
 
 def save_tasks():
     """Save the to-do list to a file."""
