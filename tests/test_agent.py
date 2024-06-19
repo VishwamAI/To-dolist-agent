@@ -2,6 +2,7 @@ import unittest
 from click.testing import CliRunner
 from agent import cli, tasks
 
+
 class TestTodoListAgent(unittest.TestCase):
 
     def setUp(self):
@@ -35,6 +36,7 @@ class TestTodoListAgent(unittest.TestCase):
         result = self.runner.invoke(cli, ['delete', '1'])
         self.assertEqual(result.exit_code, 0)
         self.assertIn('Invalid task number.', result.output)
+
 
 if __name__ == '__main__':
     unittest.main()
